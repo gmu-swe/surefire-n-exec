@@ -1,4 +1,4 @@
-#surefire-n-exec
+# surefire-n-exec
 
 JUnit4 provider for Maven Surefire that will rerun all tests a specified number of times.
 
