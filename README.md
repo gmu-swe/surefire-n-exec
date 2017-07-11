@@ -2,7 +2,7 @@
 
 JUnit4/TestNG provider for Maven Surefire that will rerun all tests a specified number of times.
 
-To use it (after installing), add it as a dependency to the surefire plugin (NOT a dependency of your entire build! Just for surefire), and configure the number of times to rerun each test (total runs = 1 + reruns).
+To use it (after installing), add it as a dependency to the surefire plugin (NOT a dependency of your entire build! Just for surefire), and configure the number of times to rerun each test (total runs = 1 + reruns). Or, add my maven repo... `https://maven.jonbell.net/repository/snapshots`
 
 Example (replace artifactId with surefire-n-exec-testng):
 

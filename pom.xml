@@ -17,18 +17,11 @@
 			<url>https://maven.jonbell.net/repository/snapshots</url>
 		</repository>
 	</repositories>
-<!--	<distributionManagement>-->
-<!--		<snapshotRepository>-->
-<!--			<id>jb.snapshots</id>-->
-<!--			<name>JB Snapshots Repository</name>-->
-<!--			<url>https://maven.jonbell.net/repository/snapshots</url>-->
-<!--		</snapshotRepository>-->
-<!--	</distributionManagement>-->
-<distributionManagement>
-	<repository>
-		<id>mymavenrepo</id>
-		<name>mymavenrepo</name>
-		<url>${myMavenRepo.write.url}</url>
-	</repository>
-</distributionManagement>
+	<distributionManagement>
+		<repository>
+			<id>jb.snapshots</id>
+			<name>JB Snapshots Repository</name>
+			<url>https://maven.jonbell.net/repository/snapshots</url>
+		</repository>
+	</distributionManagement>
 </project>

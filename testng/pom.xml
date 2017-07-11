@@ -80,4 +80,12 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>jb.snapshots</id>
+            <name>JB Snapshots Repository</name>
+            <url>https://maven.jonbell.net/repository/snapshots</url>
+        </repository>
+    </distributionManagement>
+
 </project>
