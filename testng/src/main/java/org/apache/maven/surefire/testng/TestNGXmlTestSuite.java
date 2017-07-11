@@ -72,11 +72,7 @@ public final class TestNGXmlTestSuite
             throw new IllegalStateException( "You must call locateTestSets before calling execute" );
         }
         startTestSuite( reporter );
-        int nTimesToRun = 1;
-        if(getOptions().get("rerunAllTests") != null)
-        	nTimesToRun = 1 + Integer.valueOf(getOptions().get("rerunAllTests"));
-        for(int i = 0; i < nTimesToRun; i++)
-        	run( suiteFilePaths, testSourceDirectory, options, reporter, reportsDirectory, skipAfterFailureCount );
+       	run( suiteFilePaths, testSourceDirectory, options, reporter, reportsDirectory, skipAfterFailureCount );
         finishTestSuite( reporter );
     }
 

@@ -109,12 +109,8 @@ public final class TestNGDirectoryTestSuite
 
         Map<String, String> optionsToUse = isJUnitTest( testClass ) ? junitOptions : options;
 
-        int nTimesToRun = 1;
-        if(getOptions().get("rerunAllTests") != null)
-        	nTimesToRun = 1 + Integer.valueOf(getOptions().get("rerunAllTests"));
-        for(int i = 0; i < nTimesToRun; i++)
-        	run( Collections.<Class<?>>singleton( testClass ), testSourceDirectory, optionsToUse, reporter,
-                reportsDirectory, methodFilter, mainCliOptions, skipAfterFailureCount );
+       	run( Collections.<Class<?>>singleton( testClass ), testSourceDirectory, optionsToUse, reporter,
+            reportsDirectory, methodFilter, mainCliOptions, skipAfterFailureCount );
 
         finishTestSuite( reporter );
     }
@@ -194,18 +190,13 @@ public final class TestNGDirectoryTestSuite
         }
         startTestSuite( reporterManager );
 
-        int nTimesToRun = 1;
-        if(getOptions().get("rerunAllTests") != null)
-        	nTimesToRun = 1 + Integer.valueOf(getOptions().get("rerunAllTests"));
-        for(int i = 0; i < nTimesToRun; i++)
-        	run( testNgTestClasses, testSourceDirectory, options, reporterManager,
-        			testNgReportsDirectory, methodFilter, mainCliOptions, skipAfterFailureCount );
+      	run( testNgTestClasses, testSourceDirectory, options, reporterManager,
+   			testNgReportsDirectory, methodFilter, mainCliOptions, skipAfterFailureCount );
 
         if ( !junitTestClasses.isEmpty() )
         {
-            for(int i = 0; i < nTimesToRun; i++)
-            	run( junitTestClasses, testSourceDirectory, junitOptions, reporterManager,
-                    junitReportsDirectory, methodFilter, mainCliOptions, skipAfterFailureCount );
+           	run( junitTestClasses, testSourceDirectory, junitOptions, reporterManager,
+                junitReportsDirectory, methodFilter, mainCliOptions, skipAfterFailureCount );
         }
 
         finishTestSuite( reporterManager );

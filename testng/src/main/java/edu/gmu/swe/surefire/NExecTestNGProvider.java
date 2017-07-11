@@ -43,6 +43,7 @@ import org.apache.maven.surefire.util.TestsToRun;
 import java.io.File;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -230,7 +231,13 @@ public class NExecTestNGProvider
         else
         {
             testsToRun = scanClassPath();
-            return testsToRun;
+            LinkedList<Class<?>> ret = new LinkedList<Class<?>>();
+            for(Class<?> c : testsToRun)
+            {
+                for ( int i = 0; i < rerunAllTestsCount + 1; i++ )
+                	ret.add(c);
+            }
+            return ret;
         }
     }
 
