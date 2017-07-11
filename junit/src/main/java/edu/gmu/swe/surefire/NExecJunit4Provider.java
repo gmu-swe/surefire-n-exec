@@ -121,7 +121,9 @@ public class NExecJunit4Provider
         rerunFailingTestsCount = testRequest.getRerunFailingTestsCount();
         String rerunAllTests = bootParams.getProviderProperties().get("rerunAllTests");
         if(rerunAllTests != null)
+        {
         	rerunAllTestsCount = Integer.valueOf(rerunAllTests);
+        }
         else
         	rerunAllTestsCount = 0;
     }
@@ -287,15 +289,6 @@ public class NExecJunit4Provider
             }
             finally
             {
-            	if( rerunAllTestsCount > 0 )
-            	{
-            		 Notifier rerunNotifier = pureNotifier();
-                     notifier.copyListenersTo( rerunNotifier );
-                     for ( int i = 0; i < rerunAllTestsCount; i++ )
-                     {
-                         execute( clazz, notifier, hasMethodFilter ? createMethodFilter() : null );
-                     }
-            	}
                 notifier.asFailFast( false );
             }
 
@@ -324,7 +317,13 @@ public class NExecJunit4Provider
     public Iterable<Class<?>> getSuites()
     {
         testsToRun = scanClassPath();
-        return testsToRun;
+        LinkedList<Class<?>> ret = new LinkedList<Class<?>>();
+        for(Class<?> c : testsToRun)
+        {
+            for ( int i = 0; i < rerunAllTestsCount + 1; i++ )
+            	ret.add(c);
+        }
+        return ret;
     }
 
     private TestsToRun scanClassPath()
