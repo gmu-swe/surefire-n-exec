@@ -78,7 +78,7 @@ import static org.junit.runner.Request.method;
  * 
  * Modified by Jon Bell
  */
-public class NExecRunner
+public class NExecJunit4Provider
     extends AbstractProvider
 {
     private static final String UNDETERMINED_TESTS_DESCRIPTION = "cannot determine test in forked JVM with surefire";
@@ -105,7 +105,7 @@ public class NExecRunner
 
     private TestsToRun testsToRun;
 
-    public NExecRunner( ProviderParameters bootParams )
+    public NExecJunit4Provider( ProviderParameters bootParams )
     {
         // don't start a thread in CommandReader while we are in in-plugin process
         commandsReader = bootParams.isInsideFork() ? getReader().setShutdown( bootParams.getShutdown() ) : null;
